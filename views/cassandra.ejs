@@ -1,0 +1,42 @@
+<%- include layouts/header.ejs %>
+
+  <p>
+    Cassandra successfully initialized!
+  </p>
+
+  <div class="data-table">
+    <table border="1" cellpadding="7" cellspacing="7">
+        <tr>
+            <th width="50px">No</th>
+            <th>Address</th>
+            <th>Cassandra Version</th>
+            <th>Rack</th>
+            <th>Datacenter</th>
+        </tr>
+
+        <% if(data.length){ 
+
+         for(var i = 0;i < data.length;i++) { %>
+
+        <tr>
+            <td><%=(i+1)%></td>
+            <td><%=data[i].address%></td>
+            <td><%=data[i].version%></td>
+            <td><%=data[i].rack%></td>
+            <td><%=data[i].datacenter%></td>
+        </tr>
+    <% }
+
+     }else{ %>
+         <tr>
+            <td colspan="3">No user</td>
+         </tr>
+    <% } %>
+
+
+
+    </table>
+  </div>
+  <br>
+  <a class="a-inside btn" href="/customers">Click to open the Application</a>
+<%- include layouts/footer.ejs %>
